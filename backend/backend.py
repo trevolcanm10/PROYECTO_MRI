@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import tflite_runtime.interpreter as tflite
 import numpy as np
-from tensorflow.keras.preprocessing import image
 import os
 from werkzeug.utils import secure_filename
 import matplotlib
