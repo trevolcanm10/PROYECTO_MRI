@@ -6,7 +6,7 @@ import '../../models/resultado_model.dart';
 class ApiService {
   // ⚠️ Asegúrate de que Flask esté corriendo en este puerto
   //static const String _baseUrl = 'http://localhost:5000';
-  static const String _baseUrl = 'https://TU-APP.onrender.com';
+  static const String _baseUrl = 'https://proyecto-mri.onrender.com';
 
   /// Envía la imagen como bytes (Uint8List) — compatible con Flutter Web.
   /// No usa dart:io ni File.
