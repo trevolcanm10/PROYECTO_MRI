@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-import tensorflow as tf
+import tflite_runtime.interpreter as tflite
 import numpy as np
 from tensorflow.keras.preprocessing import image
 import os
@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Cargar modelo TFLite
-interpreter = tf.lite.Interpreter(model_path='brain_tumor_cnn.tflite')
+interpreter = tflite.Interpreter(model_path="brain_tumor_cnn.tflite")
 interpreter.allocate_tensors()
 
 input_details = interpreter.get_input_details()
