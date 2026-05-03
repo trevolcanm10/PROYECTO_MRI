@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import tflite_runtime.interpreter as tflite
-from tensorflow.keras.preprocessing import image
+from PIL import Image
 import numpy as np
 import os
 from werkzeug.utils import secure_filename
@@ -59,8 +59,8 @@ def clasificar_api():
     file.save(filepath)
 
     # Preprocesar imagen
-    img = image.load_img(filepath, target_size=(128, 128))
-    img_array = image.img_to_array(img)
+    img = Image.open(filepath).resize((128, 128))
+    img_array = np.array(img)
     img_array = np.expand_dims(img_array, axis=0)
 
     # Predicción
